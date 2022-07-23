@@ -21,14 +21,22 @@ class LoginPage extends Page {
         return $('button[type="submit"]');
     }
 
+    get flash () {
+        return $('#flash')
+    }
+
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
      */
-    async login (username, password) {
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
+    async login (oLoginDetails) {
+        await this.inputUsername.setValue(oLoginDetails.username);
+        await this.inputPassword.setValue(oLoginDetails.password);
         await this.btnSubmit.click();
+    }
+
+    async errorCheck (sError){
+        return this.flash;
     }
 
     /**
