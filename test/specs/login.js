@@ -15,7 +15,7 @@ describe('Login to Secure area', () => {
 });
 
 describe('Fail to login to Secure area', () => {
-    it('should login with valid credentials', async () => {
+    it('should fail login with invalid credentials', async () => {
         await LoginPage.open();
         await LoginPage.login(LoginCredentials.oBadDetails);
 
